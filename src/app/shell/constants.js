@@ -1,4 +1,8 @@
-export NOVICE = 'Novice'
-export APPRENTICE = 'Apprentice'
-export SOLVER = 'Solver'
-export SYNTHESIZER = 'Synthesizer'
+export const NOVICE = 'Novice'
+export const APPRENTICE = 'Apprentice'
+export const SOLVER = 'Solver'
+export const SYNTHESIZER = 'Synthesizer'
+
+export const paths = {
+    skills: ['skills']
+}
