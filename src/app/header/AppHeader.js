@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import AppBar from 'material-ui/AppBar'
+
 export default class AppHeader extends Component {
   render () {
     return (
-        <div style={{textAlign: 'center'}}>
-            <h1>{this.props.title}</h1>
-        </div>
-    )
-  }
+        <AppBar showMenuIconButton={false}
+            title={this.props.title}/>
+    )}
 }
 
 AppHeader.defaultProps = {
