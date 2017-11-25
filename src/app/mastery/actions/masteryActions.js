@@ -1,8 +1,8 @@
-export const ADD_SKILL = 'ADD_SKILL'
+import * as types from '../../shell/actionTypes'
 
 export function addSkill(name) {
   return {
-    type: ADD_SKILL,
+    type: types.ADD_SKILL,
     name
   }
 }
