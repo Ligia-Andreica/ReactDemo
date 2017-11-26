@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import _ from 'lodash'
 import * as masteryActions from '../actions/masteryActions'
 import { getSkillsCountSelector } from '../selectors/skillsSelector'
-import { paths } from '../../shell/constants'
+import { paths } from '../../constants/constants'
 
 import MasteryList from '../components/MasteryList'
 import AddSkill from '../components/AddSkill'

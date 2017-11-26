@@ -2,8 +2,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
-import configureStore from './app/shell/configureStore'
-import RootApp from './app/shell/App'
+import configureStore from './app/store/configureStore'
+import RootApp from './app/shell/containers/App'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
@@ -19,8 +19,8 @@ const App = () => (
 )
 
 render(
-      <Provider store = {store}>
+    <Provider store = {store}>
         <App/>
-      </Provider>,
-  rootContainer
+    </Provider>,
+    rootContainer
 )

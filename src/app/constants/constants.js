@@ -4,5 +4,6 @@ export const SOLVER = 'Solver'
 export const SYNTHESIZER = 'Synthesizer'
 
 export const paths = {
-    skills: ['skills']
+    skills: ['skills'],
+    errorMessage: ['errorMessage']
 }

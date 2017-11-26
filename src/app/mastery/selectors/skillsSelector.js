@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
 
-import { paths } from '../../shell/constants'
+import { paths } from '../../constants/constants'
 
 const getSkills = state => state.masteryReducer.getIn(paths.skills)
-const getSkillsCount = skills => skills.size
+const getSkillsCount = skills => skills ? skills.size : 0
 
 export const getSkillsCountSelector = createSelector(
     getSkills,
