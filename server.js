@@ -22,10 +22,7 @@ APP.route('/skills')
     .get((req, res) => res.json(skills))
     .post((req, res) => {
         const { skill } = req.body
-        skills.push({
-            key: skills.length,
-            skill
-        })
+        skills.push(skill)
         res.json({
             success: 1,
             message:'Skill Successfully added!'
