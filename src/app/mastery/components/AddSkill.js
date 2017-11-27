@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
+import _ from 'lodash'
+
 export default class AddSkill extends Component {
     constructor(props) {
         super(props)
@@ -13,7 +15,7 @@ export default class AddSkill extends Component {
     }
 
     addSkillToList = () => {
-        if (this.state.newSkill) {
+        if (!_.isEmpty(this.state.newSkill)) {
             this.props.addSkill(this.state.newSkill)
             this.setState({
                 newSkill: ''

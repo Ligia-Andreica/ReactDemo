@@ -28,9 +28,9 @@ APP.route('/skills')
             skill
         })
         res.json({
-            success: 201,
+            status: 201,
             id,
-            message:'Skill Successfully added!'
+            message: 'Skill successfully added!'
         })
     })
 

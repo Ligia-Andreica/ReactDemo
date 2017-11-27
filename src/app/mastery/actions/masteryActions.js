@@ -40,7 +40,7 @@ export function addSkill(name) {
 }
 
 export function getSkills() {
-    return function (dispatch) {
+    return function(dispatch) {
         let req = request.get('http://localhost:9000/skills').accept('application/json')
         dispatch(fetchSkillInProgress(true))
         let reqCallback = (error, response) => {
