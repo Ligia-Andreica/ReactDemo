@@ -9,12 +9,17 @@ import Subheader from 'material-ui/Subheader'
 import DeleteButton from 'material-ui/svg-icons/action/delete'
 
 export default class MasteryList extends Component {
+
+    deleteSkill = (id) => {
+        this.props.deleteSkill(id)
+    }
+
     mapSkills = () => {
         return this.props.skills &&_.map(this.props.skills.toJS(), (skill) => {
             return <GridTile style={{backgroundColor: 'lightGray'}}
                       key={skill.id}
                       title={skill.skill}
-                      actionIcon={<IconButton><DeleteButton color="white" onClick={() => console.log('DELETED')}/></IconButton>}
+                      actionIcon={<IconButton onClick={() => this.deleteSkill(skill.id)}><DeleteButton color="white"/></IconButton>}
                     />
         })
     }
@@ -52,6 +57,7 @@ export default class MasteryList extends Component {
 
 MasteryList.propTypes = {
     name: PropTypes.string,
-    skills: PropTypes.object
+    skills: PropTypes.object,
+    deleteSkill: PropTypes.func
 }
 

@@ -22,6 +22,13 @@ function fetchSkillInProgress(isInProgress) {
     }
 }
 
+function deleteSkillInner(id) {
+    return {
+        type: types.DELETE_SKILL,
+        id
+    }
+}
+
 export function addSkill(name) {
     return function(dispatch) {
         let req = request.post('http://localhost:9000/skills')
@@ -49,6 +56,22 @@ export function getSkills() {
                 console.log(error)
             } else {
                 dispatch(addSkills(response.body))
+            }
+        }
+        req.end(reqCallback)
+    }
+}
+
+export function deleteSkill(id) {
+    return function(dispatch) {
+        let req = request.del('http://localhost:9000/skills')
+            .send({ id })
+            .accept('application/json')
+        let reqCallback = (error, response) => {
+            if (error) {
+                console.log(error)
+            } else {
+                dispatch(deleteSkillInner(id))
             }
         }
         req.end(reqCallback)

@@ -21,7 +21,7 @@ class MasteryContainer extends Component {
         let itemNo = this.props.skillNo
         return (
             <div>
-                <MasteryList name={this.state.name} skills={this.props.skills}/>
+                <MasteryList name={this.state.name} skills={this.props.skills} deleteSkill={this.props.actions.deleteSkill}/>
                 <AddSkill addSkill={this.props.actions.addSkill}/>
             </div>
     )}

@@ -1,4 +1,5 @@
 // mastery actions
+export const DELETE_SKILL = 'DELETE_SKILL'
 export const ADD_SKILL = 'ADD_SKILL'
 export const ADD_SKILLS = 'ADD_SKILLS'
 export const FETCH_SKILLS = 'FETCH_SKILLS'

@@ -20,6 +20,12 @@ export default function masteryReducer(state = initialState, action = undefined)
       case types.IS_FETCH_SKILLS_IN_PROGRESS:
         newState = newState.setIn(paths.fetchSkillsStatus, action.isInProgress)
         return newState
+      case types.DELETE_SKILL:
+        let index = _.findIndex(newState.getIn(paths.skills).toJS(), skill => {
+            return skill.id == action.id
+        })
+        newState = newState.updateIn(paths.skills, arr => arr.splice(index, 1))
+        return newState
     }
   return newState
 }

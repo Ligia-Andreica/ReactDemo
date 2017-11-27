@@ -1,6 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
+import _ from 'lodash'
 
 const APP = express()
 const PORT = 9000
@@ -31,6 +32,17 @@ APP.route('/skills')
             status: 201,
             id,
             message: 'Skill successfully added!'
+        })
+    })
+    .delete((req, res) => {
+        const id = req.body
+        let index = _.findIndex(skills, skill => {
+            return skill.id == id
+        })
+        skills.splice(index, 1)
+        res.json({
+            status: 200,
+            message: 'Skill successfully deleted!'
         })
     })
 
