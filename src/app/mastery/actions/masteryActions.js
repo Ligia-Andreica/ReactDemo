@@ -1,21 +1,21 @@
 import * as types from '../../constants/actionTypes'
 import request from 'superagent'
 
-export function saveSkill(skill) {
+function saveSkill(skill) {
   return {
     type: types.ADD_SKILL,
     skill
   }
 }
 
-export function addSkills(skills) {
+function addSkills(skills) {
     return {
         type: types.ADD_SKILLS,
         skills
     }
 }
 
-export function fetchSkillInProgress(isInProgress) {
+function fetchSkillInProgress(isInProgress) {
     return {
         type: types.IS_FETCH_SKILLS_IN_PROGRESS,
         isInProgress
