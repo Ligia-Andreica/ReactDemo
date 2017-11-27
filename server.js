@@ -19,7 +19,7 @@ APP.use(function (req, res, next) {
 const skills = [{id: 0, skill: 'React'}, {id: 1, skill: 'Redux'}]
 
 APP.route('/skills')
-    .get((req, res) => res.json(skills))
+    .get((req, res) => {setTimeout(() => { res.json(skills)}, 1000) })
     .post((req, res) => {
         const { skill } = req.body
         const id = skills.length + 1

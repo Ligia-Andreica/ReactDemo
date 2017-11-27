@@ -6,6 +6,8 @@ import AppHeader from '../../header/AppHeader'
 import MasteryContainer from '../../mastery/containers/MasteryContainer'
 import * as masteryActions from '../../mastery/actions/masteryActions'
 import { getSkillsCountSelector } from '../../mastery/selectors/skillsSelector'
+import { paths } from '../../constants/constants'
+import CircularProgress from 'material-ui/CircularProgress'
 
 class App extends Component {
     componentWillMount() {
@@ -13,18 +15,21 @@ class App extends Component {
     }
 
     render () {
-        return (
-            <div>
-                <AppHeader title='React Redux Example App' numberOfSkills={this.props.skillNo}/>
-                <MasteryContainer/>
-            </div>
-    )}
+        let appContent = this.props.isSkillFetching ?
+                                  <CircularProgress size={80} thickness={5} /> :
+                                  <div>
+                                      <AppHeader title='React Redux Example App' numberOfSkills={this.props.skillNo}/>
+                                      <MasteryContainer/>
+                                  </div>
+        return (appContent)
+    }
 }
 
 
 const mapStateToProps = (state) => {
   return {
-    skillNo: getSkillsCountSelector(state),
+    isSkillFetching: state.masteryReducer.getIn(paths.fetchSkillsStatus),
+    skillNo: getSkillsCountSelector(state)
   }
 }
 

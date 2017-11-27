@@ -15,6 +15,13 @@ export function addSkills(skills) {
     }
 }
 
+export function fetchSkillInProgress(isInProgress) {
+    return {
+        type: types.IS_FETCH_SKILLS_IN_PROGRESS,
+        isInProgress
+    }
+}
+
 export function addSkill(name) {
     return function(dispatch) {
         let req = request.post('http://localhost:9000/skills')
@@ -35,7 +42,9 @@ export function addSkill(name) {
 export function getSkills() {
     return function (dispatch) {
         let req = request.get('http://localhost:9000/skills').accept('application/json')
+        dispatch(fetchSkillInProgress(true))
         let reqCallback = (error, response) => {
+            dispatch(fetchSkillInProgress(false))
             if (error) {
                 console.log(error)
             } else {

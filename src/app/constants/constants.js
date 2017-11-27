@@ -6,6 +6,8 @@ export const SYNTHESIZER = 'Synthesizer'
 export const MASTERY_LEVEL = [NOVICE, NOVICE, APPRENTICE, SOLVER, SYNTHESIZER]
 
 export const paths = {
+    skill: ['skill'],
     skills: ['skill', 'skills'],
+    fetchSkillsStatus: ['skill', 'isFetchInProgress'],
     errorMessage: ['errorMessage']
 }
