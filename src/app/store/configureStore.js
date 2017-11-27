@@ -4,8 +4,8 @@ import {createLogger} from 'redux-logger'
 import rootReducer from './rootReducer'
 
 const storeWithMiddleware = compose (
-    applyMiddleware(createLogger()),
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
+    applyMiddleware(createLogger())
 )(createStore)
 
 const initialState = undefined
