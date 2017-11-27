@@ -16,15 +16,20 @@ APP.use(function (req, res, next) {
     next() 
 }) 
 
-const skills = ['React', 'Redux']
+const skills = [{id: 0, skill: 'React'}, {id: 1, skill: 'Redux'}]
 
 APP.route('/skills')
     .get((req, res) => res.json(skills))
     .post((req, res) => {
         const { skill } = req.body
-        skills.push(skill)
+        const id = skills.length + 1
+        skills.push({
+            id,
+            skill
+        })
         res.json({
-            success: 1,
+            success: 201,
+            id,
             message:'Skill Successfully added!'
         })
     })

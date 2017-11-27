@@ -10,10 +10,10 @@ import DeleteButton from 'material-ui/svg-icons/action/delete'
 
 export default class MasteryList extends Component {
     mapSkills = () => {
-        return this.props.skills &&_.map(this.props.skills.toJS(), function (skill, index) {
+        return this.props.skills &&_.map(this.props.skills.toJS(), function (skill) {
             return <GridTile style={{backgroundColor: 'lightGray'}}
-                      key={skill + index}
-                      title={skill}
+                      key={skill.id}
+                      title={skill.skill}
                       actionIcon={<IconButton><DeleteButton color="white" onClick={() => console.log('DELETED')}/></IconButton>}
                     />
         })

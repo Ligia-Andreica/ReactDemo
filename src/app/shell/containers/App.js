@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import AppHeader from '../../header/AppHeader'
 import MasteryContainer from '../../mastery/containers/MasteryContainer'
 import * as masteryActions from '../../mastery/actions/masteryActions'
+import { getSkillsCountSelector } from '../../mastery/selectors/skillsSelector'
 
 class App extends Component {
     componentWillMount() {
@@ -14,7 +15,7 @@ class App extends Component {
     render () {
         return (
             <div>
-                <AppHeader title = 'React Redux Example App'/>
+                <AppHeader title='React Redux Example App' numberOfSkills={this.props.skillNo}/>
                 <MasteryContainer/>
             </div>
     )}
@@ -22,7 +23,9 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    skillNo: getSkillsCountSelector(state),
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {

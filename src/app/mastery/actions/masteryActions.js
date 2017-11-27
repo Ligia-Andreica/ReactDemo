@@ -1,10 +1,10 @@
 import * as types from '../../constants/actionTypes'
 import request from 'superagent'
 
-export function saveSkill(name) {
+export function saveSkill(skill) {
   return {
     type: types.ADD_SKILL,
-    name
+    skill
   }
 }
 
@@ -24,7 +24,8 @@ export function addSkill(name) {
             if (error) {
                 console.log(error)
             } else {
-                dispatch(saveSkill(name))
+                let skill = { id: response.body.id, skill: name }
+                dispatch(saveSkill(skill))
             }
         }
         req.end(reqCallback)

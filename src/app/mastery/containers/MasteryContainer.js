@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 
 import _ from 'lodash'
 import * as masteryActions from '../actions/masteryActions'
-import { getSkillsCountSelector } from '../selectors/skillsSelector'
 import { paths } from '../../constants/constants'
 
 import MasteryList from '../components/MasteryList'
@@ -30,7 +29,6 @@ class MasteryContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    skillNo: getSkillsCountSelector(state),
     skills: state.masteryReducer.getIn(paths.skills)
   }
 }

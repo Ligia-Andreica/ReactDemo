@@ -10,7 +10,7 @@ export default function masteryReducer(state = initialState, action = undefined)
 
   switch (action.type) {
       case types.ADD_SKILL:
-        newState = newState.updateIn(paths.skills, arr => arr.push(action.name));
+        newState = newState.updateIn(paths.skills, arr => arr.push(action.skill));
         return newState
       case types.ADD_SKILLS:
         newState = newState.setIn(paths.skills, Immutable.List(action.skills))
