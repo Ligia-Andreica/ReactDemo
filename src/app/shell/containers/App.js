@@ -15,7 +15,7 @@ class App extends Component {
         this.props.actions.getSkills()
     }
 
-    render () {
+    render() {
         let appContent = this.props.isSkillFetching ?
                                   <CircularProgress size={80} thickness={5} /> :
                                   <div>

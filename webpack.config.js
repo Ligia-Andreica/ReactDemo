@@ -40,6 +40,11 @@ const common = {
                 }
             },
             {
+                test: /\.spec.jsx?/,
+                include: APP_DIR,
+                loader: ['babel-loader', 'mocha-loader']
+            },
+            {
                 test: /\.jsx?/,
                 include: APP_DIR,
                 loader: ['babel-loader', 'eslint-loader']
