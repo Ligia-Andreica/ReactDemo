@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
 
 import AppHeader from '../../header/AppHeader'
 import MasteryContainer from '../../mastery/containers/MasteryContainer'
@@ -41,3 +42,9 @@ export default App = connect(
   mapStateToProps,
   mapDispatchToProps
 )(App)
+
+App.propTypes = {
+    isSkillFetching: PropTypes.bool,
+    skillNo: PropTypes.number,
+    actions: PropTypes.array
+}

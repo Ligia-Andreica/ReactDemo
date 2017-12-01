@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-import _ from 'lodash'
-
 export default class AddSkill extends Component {
     constructor(props) {
         super(props)
@@ -15,7 +13,7 @@ export default class AddSkill extends Component {
     }
 
     addSkillToList = () => {
-        if (!_.isEmpty(this.state.newSkill)) {
+        if (this.state.newSkill) {
             this.props.addSkill(this.state.newSkill)
             this.setState({
                 newSkill: ''
@@ -35,12 +33,12 @@ export default class AddSkill extends Component {
                 <TextField
                       value={this.state.newSkill}
                       onChange={this.handleNewSkillChange}
-                      hintText="New Skill"
-                      errorText={this.state.newSkill ? undefined : "This field is required"}/>
-                <RaisedButton label="Add Skill to Grid"
+                      hintText='New Skill'
+                      errorText={this.state.newSkill ? undefined : 'This field is required'}/>
+                <RaisedButton label='Add Skill to Grid'
                         onClick={this.addSkillToList}
                         primary={true} style={{margin: 12}}
-                        disabled={!this.state.newSkill}/>
+                        disabled={!this.state.newSkill.trim()}/>
             </div>
     )}
 }

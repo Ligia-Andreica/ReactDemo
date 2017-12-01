@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
 
 import _ from 'lodash'
 import * as masteryActions from '../actions/masteryActions'
@@ -18,7 +19,6 @@ class MasteryContainer extends Component {
     }
 
     render () {
-        let itemNo = this.props.skillNo
         return (
             <div>
                 <MasteryList name={this.state.name} skills={this.props.skills}/>
@@ -49,3 +49,8 @@ export default MasteryContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(MasteryContainer)
+
+MasteryContainer.propTypes = {
+    skills: PropTypes.array,
+    actions: PropTypes.array
+}
