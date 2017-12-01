@@ -40,6 +40,11 @@ const common = {
                 }
             },
             {
+                test: /\.scss$/,
+                include: APP_DIR,
+                loaders: "style-loader!css-loader"
+            },
+            {
                 test: /\.spec.jsx?/,
                 include: APP_DIR,
                 loader: ['babel-loader', 'mocha-loader']

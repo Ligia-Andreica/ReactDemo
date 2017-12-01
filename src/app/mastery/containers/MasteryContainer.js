@@ -18,10 +18,21 @@ class MasteryContainer extends Component {
         }
     }
 
+    componentDidMount() {
+      this.setState({ elementHeight: this.divRef.clientHeight })
+    }
+
     render () {
+        let style = {
+            position: 'absolute',
+            top: 65,
+            bottom: 0,
+            left: 0,
+            right: 0
+        }
         return (
-            <div>
-                <MasteryList name={this.state.name} skills={this.props.skills}/>
+            <div id='masteryContainer' ref={element => this.divRef = element} style={style}>
+                <MasteryList name={this.state.name} skills={this.props.skills} height={this.state.elementHeight}/>
                 <AddSkill addSkill={this.props.actions.addSkill}/>
             </div>
     )}

@@ -29,7 +29,7 @@ export default class AddSkill extends Component {
 
     render() {
         return (
-            <div style={{bottom: 0, position: 'absolute'}}>
+            <div style={{bottom: 0, position: 'absolute', right: 80}}>
                 <TextField
                       value={this.state.newSkill}
                       onChange={this.handleNewSkillChange}

@@ -18,7 +18,7 @@ class App extends Component {
     render() {
         let appContent = this.props.isSkillFetching ?
                                   <CircularProgress size={80} thickness={5} /> :
-                                  <div>
+                                  <div id='appContainer' style={{height: '100%'}}>
                                       <AppHeader title='React Redux Example App' numberOfSkills={this.props.skillNo}/>
                                       <MasteryContainer/>
                                   </div>
