@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
 
 import AppHeader from '../../header/AppHeader'
 import MasteryContainer from '../../mastery/containers/MasteryContainer'
@@ -14,10 +15,10 @@ class App extends Component {
         this.props.actions.getSkills()
     }
 
-    render () {
+    render() {
         let appContent = this.props.isSkillFetching ?
                                   <CircularProgress size={80} thickness={5} /> :
-                                  <div>
+                                  <div id='appContainer' style={{height: '100%'}}>
                                       <AppHeader title='React Redux Example App' numberOfSkills={this.props.skillNo}/>
                                       <MasteryContainer/>
                                   </div>
@@ -41,3 +42,9 @@ export default App = connect(
   mapStateToProps,
   mapDispatchToProps
 )(App)
+
+App.propTypes = {
+    isSkillFetching: PropTypes.bool,
+    skillNo: PropTypes.number,
+    actions: PropTypes.array
+}

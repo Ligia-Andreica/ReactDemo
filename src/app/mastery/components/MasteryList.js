@@ -8,6 +8,9 @@ import IconButton from 'material-ui/IconButton'
 import Subheader from 'material-ui/Subheader'
 import DeleteButton from 'material-ui/svg-icons/action/delete'
 
+const MARGIN_OFFSET = 10
+const HEADER_OFFSET = 80
+
 export default class MasteryList extends Component {
 
     deleteSkill = (id) => {
@@ -34,9 +37,8 @@ export default class MasteryList extends Component {
           },
           gridList: {
             width: '90%',
-            height: '100%',
-            overflowY: 'auto',
-            bottom: 100
+            maxHeight: this.props.height - MARGIN_OFFSET - HEADER_OFFSET,
+            overflowY: 'auto'
           }
         }
 
@@ -45,10 +47,9 @@ export default class MasteryList extends Component {
                 {
                     this.props.skills &&
                     <GridList cols={4}
-                          cellHeight={180}
                           style={styles.gridList}>
-                           <Subheader style={{fontWeight: 'bold'}}>{`${this.props.name}'s skills (${this.props.skills.size})`}</Subheader>
-                           {this.mapSkills()}
+                          <Subheader style={{fontWeight: 'bold'}}>{`${this.props.name}'s skills (${this.props.skills.size})`}</Subheader>
+                          {this.mapSkills()}
                     </GridList>
                 }
             </div>
@@ -58,6 +59,7 @@ export default class MasteryList extends Component {
 MasteryList.propTypes = {
     name: PropTypes.string,
     skills: PropTypes.object,
+    height: PropTypes.number,
     deleteSkill: PropTypes.func
 }
 

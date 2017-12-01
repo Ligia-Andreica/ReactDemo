@@ -36,8 +36,23 @@ const common = {
                 include: APP_DIR,
                 loader: 'babel-loader',
                 query: {
-                presets : ['es2015', 'stage-0', 'react']
+                    presets : ['es2015', 'stage-0', 'react']
                 }
+            },
+            {
+                test: /\.scss$/,
+                include: APP_DIR,
+                loaders: "style-loader!css-loader"
+            },
+            {
+                test: /\.spec.jsx?/,
+                include: APP_DIR,
+                loader: ['babel-loader', 'mocha-loader']
+            },
+            {
+                test: /\.jsx?/,
+                include: APP_DIR,
+                loader: ['babel-loader', 'eslint-loader']
             }
         ]
     }

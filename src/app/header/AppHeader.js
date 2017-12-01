@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 
 import AppBar from 'material-ui/AppBar'
-import IconButton from 'material-ui/IconButton'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import StarBorder from 'material-ui/svg-icons/toggle/star'
@@ -40,7 +39,8 @@ export default class AppHeader extends Component {
 
     const actions = [
         <FlatButton
-            label="OK"
+            key='ok'
+            label='OK'
             primary={true}
             onClick={this.handleClose}
         />

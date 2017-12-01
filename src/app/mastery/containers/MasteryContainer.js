@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import PropTypes from 'prop-types'
 
 import _ from 'lodash'
 import * as masteryActions from '../actions/masteryActions'
@@ -17,11 +18,21 @@ class MasteryContainer extends Component {
         }
     }
 
+    componentDidMount() {
+      this.setState({ elementHeight: this.divRef.clientHeight })
+    }
+
     render () {
-        let itemNo = this.props.skillNo
+        let style = {
+            position: 'absolute',
+            top: 65,
+            bottom: 0,
+            left: 0,
+            right: 0
+        }
         return (
-            <div>
-                <MasteryList name={this.state.name} skills={this.props.skills} deleteSkill={this.props.actions.deleteSkill}/>
+            <div id='masteryContainer' ref={element => this.divRef = element} style={style}>
+                <MasteryList name={this.state.name} skills={this.props.skills} height={this.state.elementHeight} deleteSkill={this.props.actions.deleteSkill}/>
                 <AddSkill addSkill={this.props.actions.addSkill}/>
             </div>
     )}
@@ -49,3 +60,9 @@ export default MasteryContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(MasteryContainer)
+
+MasteryContainer.propTypes = {
+    skills: PropTypes.array,
+    actions: PropTypes.array,
+    deleteSkill: PropTypes.func
+}

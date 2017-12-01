@@ -5,10 +5,11 @@ import { Provider } from 'react-redux'
 import configureStore from './app/store/configureStore'
 import RootApp from './app/shell/containers/App'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import './app/theme/shell.scss'
 
 const store = configureStore
 const rootContainer = document.getElementById('root')
+rootContainer.className = 'root'
 
 const App = () => (
     <MuiThemeProvider>

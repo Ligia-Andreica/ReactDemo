@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import Immutable from 'immutable'
 
 import * as types from '../../constants/actionTypes'

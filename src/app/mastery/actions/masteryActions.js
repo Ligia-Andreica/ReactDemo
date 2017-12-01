@@ -1,7 +1,7 @@
 import * as types from '../../constants/actionTypes'
 import request from 'superagent'
 
-function saveSkill(skill) {
+export function saveSkill(skill) {
   return {
     type: types.ADD_SKILL,
     skill
