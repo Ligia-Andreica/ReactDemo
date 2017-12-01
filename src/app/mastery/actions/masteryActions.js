@@ -71,7 +71,9 @@ export function deleteSkill(id) {
             if (error) {
                 console.log(error)
             } else {
-                dispatch(deleteSkillInner(id))
+                if(response.body.status === 200){
+                    dispatch(deleteSkillInner(id))
+                }
             }
         }
         req.end(reqCallback)
