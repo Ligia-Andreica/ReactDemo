@@ -13,28 +13,29 @@ const HEADER_OFFSET = 80
 
 export default class MasteryList extends Component {
     mapSkills = () => {
-        return this.props.skills &&_.map(this.props.skills.toJS(), (skill) => {
-            return <GridTile style={{backgroundColor: 'lightGray'}}
-                      key={skill.id}
-                      title={skill.skill}
-                      actionIcon={<IconButton><DeleteButton color="white" onClick={() => console.log('DELETED')}/></IconButton>}
-                    />
-        })
+        return this.props.skills && _.map(this.props.skills.toJS(), (skill) => {
+                return <GridTile style={{backgroundColor: 'lightGray'}}
+                                 key={skill.id}
+                                 title={skill.skill}
+                                 actionIcon={<IconButton><DeleteButton color="white"
+                                                                       onClick={() => console.log('DELETED')}/></IconButton>}
+                />
+            })
     }
 
     render() {
         const styles = {
-          root: {
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            marginTop: 10
-          },
-          gridList: {
-            width: '90%',
-            maxHeight: this.props.height - MARGIN_OFFSET - HEADER_OFFSET,
-            overflowY: 'auto'
-          }
+            root: {
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-around',
+                marginTop: 10
+            },
+            gridList: {
+                width: '90%',
+                maxHeight: this.props.height - MARGIN_OFFSET - HEADER_OFFSET,
+                overflowY: 'auto'
+            }
         }
 
         return (
@@ -42,13 +43,15 @@ export default class MasteryList extends Component {
                 {
                     this.props.skills &&
                     <GridList cols={4}
-                          style={styles.gridList}>
-                          <Subheader style={{fontWeight: 'bold'}}>{`${this.props.name}'s skills (${this.props.skills.size})`}</Subheader>
-                          {this.mapSkills()}
+                              style={styles.gridList}>
+                        <Subheader
+                            style={{fontWeight: 'bold'}}>{`${this.props.name}'s skills (${this.props.skills.size})`}</Subheader>
+                        {this.mapSkills()}
                     </GridList>
                 }
             </div>
-    )}
+        )
+    }
 }
 
 MasteryList.propTypes = {

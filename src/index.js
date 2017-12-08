@@ -13,14 +13,14 @@ rootContainer.className = 'root'
 
 const App = () => (
     <MuiThemeProvider>
-      <Provider store = {store}>
-        <RootApp/>
-      </Provider>
+        <Provider store={store}>
+            <RootApp/>
+        </Provider>
     </MuiThemeProvider>
 )
 
 render(
-    <Provider store = {store}>
+    <Provider store={store}>
         <App/>
     </Provider>,
     rootContainer

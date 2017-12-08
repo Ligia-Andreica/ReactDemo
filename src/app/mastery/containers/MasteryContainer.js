@@ -19,10 +19,10 @@ class MasteryContainer extends Component {
     }
 
     componentDidMount() {
-      this.setState({ elementHeight: this.divRef.clientHeight })
+        this.setState({elementHeight: this.divRef.clientHeight})
     }
 
-    render () {
+    render() {
         let style = {
             position: 'absolute',
             top: 65,
@@ -35,30 +35,31 @@ class MasteryContainer extends Component {
                 <MasteryList name={this.state.name} skills={this.props.skills} height={this.state.elementHeight}/>
                 <AddSkill addSkill={this.props.actions.addSkill}/>
             </div>
-    )}
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    skills: state.masteryReducer.getIn(paths.skills)
-  }
+    return {
+        skills: state.masteryReducer.getIn(paths.skills)
+    }
 }
 
 /*const mapDispatchToProps = (dispatch) => {
-  return {
-    addItem: (text) => {
-      dispatch(masteryActions.addItem(text))
-    }
-  }
-}*/
+ return {
+ addItem: (text) => {
+ dispatch(masteryActions.addItem(text))
+ }
+ }
+ }*/
 
 const mapDispatchToProps = (dispatch) => {
-    return { actions: bindActionCreators(_.merge({}, masteryActions), dispatch) }
+    return {actions: bindActionCreators(_.merge({}, masteryActions), dispatch)}
 }
 
 export default MasteryContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(MasteryContainer)
 
 MasteryContainer.propTypes = {

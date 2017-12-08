@@ -58,7 +58,7 @@ const common = {
     }
 }
 
-let config
+var config
 switch(process.env.npm_lifecycle_event) {
     case 'server':
         config = merge(

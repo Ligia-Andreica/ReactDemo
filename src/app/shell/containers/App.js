@@ -17,30 +17,30 @@ class App extends Component {
 
     render() {
         let appContent = this.props.isSkillFetching ?
-                                  <CircularProgress size={80} thickness={5} /> :
-                                  <div id='appContainer' style={{height: '100%'}}>
-                                      <AppHeader title='React Redux Example App' numberOfSkills={this.props.skillNo}/>
-                                      <MasteryContainer/>
-                                  </div>
+            <CircularProgress size={80} thickness={5}/> :
+            <div id='appContainer' style={{height: '100%'}}>
+                <AppHeader title='React Redux Example App' numberOfSkills={this.props.skillNo}/>
+                <MasteryContainer/>
+            </div>
         return (appContent)
     }
 }
 
 
 const mapStateToProps = (state) => {
-  return {
-    isSkillFetching: state.masteryReducer.getIn(paths.fetchSkillsStatus),
-    skillNo: getSkillsCountSelector(state)
-  }
+    return {
+        isSkillFetching: state.masteryReducer.getIn(paths.fetchSkillsStatus),
+        skillNo: getSkillsCountSelector(state)
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return { actions: bindActionCreators(_.merge({}, masteryActions), dispatch) }
+    return {actions: bindActionCreators(_.merge({}, masteryActions), dispatch)}
 }
 
 export default App = connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(App)
 
 App.propTypes = {

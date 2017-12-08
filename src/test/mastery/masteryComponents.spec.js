@@ -8,11 +8,11 @@ import Adapter from 'enzyme-adapter-react-15'
 
 
 describe('Add Skill', () => {
-  configure({ adapter: new Adapter() })
+    configure({adapter: new Adapter()})
 
-  const wrapper = shallow(<AddSkill/>)
+    const wrapper = shallow(<AddSkill/>)
 
-  it('should be a div item', () => {
-    expect(wrapper.type()).to.equal('div')
-  })
+    it('should be a div item', () => {
+        expect(wrapper.type()).to.equal('div')
+    })
 })
